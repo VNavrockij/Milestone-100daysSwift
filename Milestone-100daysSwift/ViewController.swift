@@ -19,18 +19,19 @@ class ViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Flags Info"
         
-//        let fm = FileManager.default
-//        let path = Bundle.main.resourcePath!
-//        let items = try! fm.contentsOfDirectory(atPath: path)
-//        for item in items {
-//            if item.hasPrefix("nssl") {
-//                pictures.append(item)
-//            }
-//
-//        }
-//
-//        print(pictures)
-        
+        /* for get images form bundle current project
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        for item in items {
+            if item.hasPrefix("nssl") {
+                pictures.append(item)
+            }
+
+        }
+
+        print(pictures)
+         */
         print(pictures)
                 
     }
@@ -50,13 +51,10 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Touch flag")
-        
         // 1: try loading the "Detail" view controller and typecasting it to be DetailViewController
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // 2: success! Set its selectedImage property
             vc.selectedImage = pictures[indexPath.row]
-            
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
